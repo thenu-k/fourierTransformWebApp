@@ -33,6 +33,7 @@ const S_App = styled.section`
     flex-direction: row;
     justify-content: space-between;
     margin: 50px 0;
+    align-items: center;
   }
 `
 
