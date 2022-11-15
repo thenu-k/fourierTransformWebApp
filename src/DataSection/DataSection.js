@@ -51,6 +51,7 @@ const S_DataSection = styled.div`
         border: 2px solid white;
         margin-bottom: 25px;
         resize: none;
+        font-family: monospace;
       }
     }
     & .submitButton{
