@@ -1,0 +1,29 @@
+*{
+    margin: 0; border: 0; padding: 0;
+    color: inherit; background-color: inherit;
+    font-size: 18px;
+}
+
+h1,h2,h3,a,span,p, button{
+    font-family: 'Syne Mono', monospace;
+}
+
+html, body, #root{
+    width: 100%;
+}
+/* body{
+    background-image: url('./bg.png');
+    background-repeat: repeat;
+    background-size: cover;
+} */
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recharts-cartesian-axis-tick {    
+    font-size: 0.5em !important;
+    /* font-family: 'Syne Mono', monospace; */
+    font-family: monospace !important;
+}
