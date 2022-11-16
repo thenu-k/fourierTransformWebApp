@@ -25,6 +25,9 @@ const DataSection = () => {
       </p>
       <form className="dataEntry center" onSubmit={sumbitData}>
         <h3>Data entry</h3>
+        <p>
+          Enter the amplitude values as comma seperated numbers. Do not incude spaces.
+        </p>
         <textarea name="" id="" cols="30" rows="10"></textarea>
         <button className='submitButton'>Sumbit</button>
       </form>
@@ -51,6 +54,7 @@ const S_DataSection = styled.div`
     }
 
     & .dataEntry{
+      margin-top: 25px;
       width: 100%;
       flex-direction: column;
       justify-content: unset;
