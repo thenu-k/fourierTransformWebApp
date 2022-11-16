@@ -1,11 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
+import {setRawData} from '../StateManager/mainSlice'
 
 const DataSection = () => {
+  const dispatch = useDispatch()
   const sumbitData  = (e) => {
     e.preventDefault()
-    const newData = e.target.querySelector('textarea').value
-    console.log(newData)
+    let newData = e.target.querySelector('textarea').value
+    newData = newData.split(',')
+    const parsedData =[]
+    for(let count = 0; count< newData.length; count++){
+      parsedData.push({
+        name: count, uv: newData[count]
+      })
+    }
+    dispatch(setRawData(parsedData))
   }
   return (
     <S_DataSection className='center'>

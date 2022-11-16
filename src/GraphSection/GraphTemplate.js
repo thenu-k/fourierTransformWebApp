@@ -12,7 +12,7 @@ const GraphTemplate = ({data}) => {
         <ResponsiveContainer width="90%" height='90%' style={{margin: 'auto', position: 'relative'}}>
             <LineChart data={data} margin={{top: 0, left: 0, bottom: 0, right: 0}}>
                 <Line type="monotone" dataKey="uv" stroke="white" strokeWidth={2}/>
-                <XAxis stroke="white" strokeWidth={1}/>
+                <XAxis stroke="white" strokeWidth={1} interval={1}/>
                 <YAxis stroke="white" strokeWidth={1}/>
                 <CartesianGrid />
             </LineChart>

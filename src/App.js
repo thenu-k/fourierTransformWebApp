@@ -7,16 +7,17 @@ import { setRawData } from "./StateManager/mainSlice";
 import {sech, sin} from "mathjs";
 
 function App() {
-  //Generate Initial Data
-  const initialRawData = generateRawData()
-  //Getting graph data
   const dispatch = useDispatch()
-  dispatch(setRawData(initialRawData))
+  //Generate Initial Data
+  const {RawData} = useSelector(state => state.RawData)
+  if(RawData===null){
+    const initialRawData = generateRawData()
+    dispatch(setRawData(initialRawData))
+  }
+
   //Getting the data
-  const {RawData}  = useSelector(state => state.RawData)
   const {TransformedData}  = useSelector(state => state.TransformedData)
   const {PhaseData} = useSelector(state => state.PhaseData)
-  console.log(TransformedData)
   return (
     <S_App className="center">
       <NavBar/>
