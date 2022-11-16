@@ -1,22 +1,33 @@
 import styled from "styled-components";
 import DataSection from "./DataSection/DataSection";
-import GraphSection from "./GraphSection/GraphSection"; 
 import GraphTemplate from "./GraphSection/GraphTemplate";
 import NavBar from "./NavBar/NavBar";
+import {useSelector, useDispatch } from 'react-redux'
+import { setRawData } from "./StateManager/mainSlice";
 
 function App() {
+  //Generate Initial Data
+  const initialRawData = generateRawData()
+  //Getting graph data
+  const dispatch = useDispatch()
+  dispatch(setRawData(initialRawData))
+  //Getting the data
+  const {RawData}  = useSelector(state => state.RawData)
+  const {TransformedData}  = useSelector(state => state.TransformedData)
+  const {PhaseData} = useSelector(state => state.PhaseData)
+  console.log(TransformedData)
   return (
     <S_App className="center">
       <NavBar/>
       <div className="firstRow center">
-        <GraphTemplate/>
+        <GraphTemplate data={RawData}/>
         <DataSection/>
       </div>
       <div className="firstRow center">
-        <GraphTemplate/>
+        <GraphTemplate data={TransformedData}/>
       </div>
       <div className="firstRow center">
-        <GraphTemplate/>
+        <GraphTemplate data={PhaseData}/>
       </div>
     </S_App>
   );
@@ -36,5 +47,15 @@ const S_App = styled.section`
     align-items: center;
   }
 `
+
+const generateRawData = () => {
+  const data = []
+  for(var count = 1; count< 41; count++){
+    data.push({
+      name: count, uv:count
+    })
+  }
+  return data
+}
 
 export default App;
