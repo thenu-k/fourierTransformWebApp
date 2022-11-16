@@ -4,6 +4,7 @@ import GraphTemplate from "./GraphSection/GraphTemplate";
 import NavBar from "./NavBar/NavBar";
 import {useSelector, useDispatch } from 'react-redux'
 import { setRawData } from "./StateManager/mainSlice";
+import {sech, sin} from "mathjs";
 
 function App() {
   //Generate Initial Data
@@ -51,8 +52,9 @@ const S_App = styled.section`
 const generateRawData = () => {
   const data = []
   for(var count = 1; count< 41; count++){
+    const result = sech(count)**2 + 5*sech(count -10)**2 + 10*sech(count -20)**2 + 5*sech(count -30)**2
     data.push({
-      name: count, uv:count
+      name: count, uv:result
     })
   }
   return data
