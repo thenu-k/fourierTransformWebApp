@@ -11,8 +11,9 @@ export const mainSlice = createSlice({
     },
     reducers:{
         setRawData: (state, action)=> {
-            state.RawData = action.payload
-            const [intensities, phases, realSums, imaginarySums] = F.fourierTransform(action.payload)
+            state.RawData = action.payload.rawData
+            console.log(action.payload)
+            const [intensities, phases, realSums, imaginarySums] = F.fourierTransform(action.payload.rawData, action.payload.samplingRate)
             const tempTransformed = []
             const tempPhaseData = []
             const tempTransformedRaw = []

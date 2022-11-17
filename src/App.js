@@ -60,7 +60,11 @@ const generateRawData = () => {
       name: count, uv:result
     })
   }
-  return data
+  const payload = {
+    rawData: data,
+    samplingRate: 40
+  }
+  return payload
 }
 
 export default App;

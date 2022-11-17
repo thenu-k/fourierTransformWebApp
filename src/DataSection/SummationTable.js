@@ -54,6 +54,8 @@ const SummationTable = () => {
 
 const S_SummationTable = styled.div`
   width: 40%;
+  /* max-width: 700px; */
+  /* justify-content: flex-start; */
     > .table.outer{
       flex-grow: 0;
       display: flex;
@@ -76,7 +78,7 @@ const S_SummationTable = styled.div`
           text-align: right;
           padding: 5px 5px;
           /* margin: 0 5px 5px 5px; */
-          border-bottom: 2px solid white;
+          /* border-bottom: 2px solid white; */
           background-color: white; color: black;
         }
       }

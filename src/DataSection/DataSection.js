@@ -8,27 +8,34 @@ const DataSection = () => {
   const sumbitData  = (e) => {
     e.preventDefault()
     let newData = e.target.querySelector('textarea').value
+    const samplingRate = e.target.querySelector('.samplingRate').value
     newData = newData.split(',')
-    const parsedData =[]
+    const parsedData = []
     for(let count = 0; count< newData.length; count++){
       parsedData.push({
         name: count, uv: newData[count]
       })
     }
-    dispatch(setRawData(parsedData))
+    const payload = {
+      rawData: parsedData,
+      samplingRate: samplingRate
+    }
+    dispatch(setRawData(payload))
   }
   return (
     <S_DataSection className='center'>
-      <h3>The DFT</h3>
+      {/* <h3>The DFT</h3>
       <p>
         The Discrete Fourier Transform (DFT) converts a finite sequence of equally-spaced samples of a function into a same-length sequence of equally-spaced samples of the discrete-time Fourier transform (DTFT), which is a complex-valued function of frequency.
-      </p>
+      </p> */}
       <form className="dataEntry center" onSubmit={sumbitData}>
         <h3>Data entry</h3>
         <p>
           Enter the amplitude values as comma seperated numbers. Do not incude spaces.
         </p>
         <textarea name="" id="" cols="30" rows="10"></textarea>
+        <p>Enter the Sampling Rate in Hertz.</p>
+        <input type="text" className='samplingRate center'></input>
         <button className='submitButton'>Sumbit</button>
       </form>
 
@@ -66,6 +73,12 @@ const S_DataSection = styled.div`
         margin-bottom: 25px;
         resize: none;
         font-family: monospace;
+      }
+      > .samplingRate{
+        border: 2px white solid;
+        width: 100px; height: 50px;
+        text-align: center;
+        margin-bottom: 30px;
       }
     }
     & .submitButton{

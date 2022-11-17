@@ -11,6 +11,9 @@ h1,h2,h3,a,span,p, button{
 html, body, #root{
     width: 100%;
 }
+html{
+    background-color: black;
+}
 /* body{
     background-image: url('./bg.png');
     background-repeat: repeat;

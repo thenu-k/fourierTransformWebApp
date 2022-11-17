@@ -1,11 +1,10 @@
 import { arg, complex } from "mathjs"
 
-export const fourierTransform = (rawData) => {
+export const fourierTransform = (rawData, samplingRate) => {
     const rawAmplitudes = []
     rawData.forEach(element => {
         rawAmplitudes.push(element.uv)
     })
-    const samplingRate= rawAmplitudes.length
     const numSamples = rawAmplitudes.length
 
     const realSums = []
