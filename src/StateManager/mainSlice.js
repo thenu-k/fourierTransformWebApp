@@ -6,14 +6,16 @@ export const mainSlice = createSlice({
     initialState:{
         RawData: null,
         TransformedData: null,
-        PhaseData: null
+        PhaseData: null,
+        TransformedRawData: null
     },
     reducers:{
         setRawData: (state, action)=> {
             state.RawData = action.payload
-            const [intensities, phases] = F.fourierTransform(action.payload)
+            const [intensities, phases, realSums, imaginarySums] = F.fourierTransform(action.payload)
             const tempTransformed = []
             const tempPhaseData = []
+            const tempTransformedRaw = []
             for(let count = 0; count<intensities.length; count++){
                 tempTransformed.push({
                     name: count,
@@ -23,9 +25,17 @@ export const mainSlice = createSlice({
                     name: count,
                     uv: phases[count]
                 })
+                tempTransformedRaw.push({
+                    valueNumber: count+1,
+                    realSum: realSums[count],
+                    imaginarySum: imaginarySums[count],
+                    intensity: intensities[count],
+                    phase: phases[count]
+                })
             }
             state.TransformedData = tempTransformed
             state.PhaseData  = tempPhaseData
+            state.TransformedRawData = tempTransformedRaw
         }
     }
 })

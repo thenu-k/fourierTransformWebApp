@@ -13,7 +13,7 @@ const S_TimeElement = styled.li`
     & span{
         margin-left: 50px;
         font-family: monospace;
-        font-weight: 800;
+        font-weight: 400;
     }
 `
 

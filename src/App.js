@@ -5,6 +5,7 @@ import NavBar from "./NavBar/NavBar";
 import {useSelector, useDispatch } from 'react-redux'
 import { setRawData } from "./StateManager/mainSlice";
 import {sech, sin} from "mathjs";
+import SummationTable from "./DataSection/SummationTable";
 
 function App() {
   const dispatch = useDispatch()
@@ -22,14 +23,15 @@ function App() {
     <S_App className="center">
       <NavBar/>
       <div className="firstRow center">
-        <GraphTemplate data={RawData}/>
+        <GraphTemplate data={RawData} title={`Amplitude V Time`}/>
         <DataSection/>
       </div>
       <div className="firstRow center">
-        <GraphTemplate data={TransformedData}/>
+        <GraphTemplate data={TransformedData} title={`Intensity V Freq`}/>
+        <SummationTable/>
       </div>
       <div className="firstRow center">
-        <GraphTemplate data={PhaseData}/>
+        <GraphTemplate data={PhaseData} title={`Phase V Freq`}/>
       </div>
     </S_App>
   );

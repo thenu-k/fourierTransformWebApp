@@ -31,5 +31,5 @@ export const fourierTransform = (rawData) => {
         phases.push(currentPhase)
         intensities.push(currentIntensity)
     }
-    return [intensities, phases]
+    return [intensities, phases, realSums, imaginarySums]
 }
